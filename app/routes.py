@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
+from flask import render_template
 from app import app
 
 
@@ -8,12 +9,4 @@ from app import app
 @app.route('/index')
 def index():
     user = {'username': 'Yurii'}
-    return '''
-<html>
-    <head>
-        <title>Home Page - Microblog</title>
-    </head>
-    <body>
-        <h1>Hello, ''' + user['username'] + '''!</h1>
-    </body>
-</html>'''
+    return render_template('index.html', title='Home', user=user)
